@@ -8,7 +8,7 @@ export function* bfs({ graph, startVertex }) {
   }
 
   const queue = [];
-  const wasInQueueVertex = new Set();;
+  const wasInQueueVertex = new Set();
 
   // queue -> visit -> (vertex.neighbors -> queue)
   queue.push(startVertex);
