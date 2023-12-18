@@ -1,0 +1,27 @@
+
+TODO visualize graph
+  in web page
+
+?TODO do not use closure?
+
+TODO
+  visualize application of graph algorithms 
+    graph algorithm 1 --> graph algorithm 2 (dfs --> tsort)
+    graph algorithm 3 --> application 1
+  use https://medium.com/@beyond_verse/graph-algorithms-traversals-shortest-paths-and-beyond-671f611aa025
+  pivot table OR graph
+
+representation graph as 
+graph = {
+  'v1': ['v2', 'v3'],
+  'v2': ['v4'],
+}
+is for cases when we know whole graph before task.
+
+Case We do not know whole graph structure before task
+can use representation graph as set of 
+Node {
+  nextVertex: [refV1, refV2]
+}
+
+Representation for storing additional data in vertex or edge

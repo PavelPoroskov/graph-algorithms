@@ -16,3 +16,5 @@ Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of ver
 The first vertex in topological sorting is always a vertex with an in-degree of 0 (a vertex with no incoming edges).
 
 There can be more than one topological sorting for a graph. 
+
+TODO tsort-dfs without recursion?
