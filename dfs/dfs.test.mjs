@@ -1,10 +1,10 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { addDirectedNeighborVertexList, printGraph } from '../create-graph.mjs';
+import { addDirectedNeighborVertexList } from '../create-graph.mjs';
 import { dfs } from './dfs.mjs';
 
-test('DFS test', (t) => {
+test('DFS test', () => {
   const graph = {};
   // me --> myNeighborOne --> neighborOfMyNeighborOne
   //    --> myNeighborTwo

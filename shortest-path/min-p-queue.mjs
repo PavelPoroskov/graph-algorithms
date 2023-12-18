@@ -85,14 +85,16 @@ export class MinPQueue {
       const parentNode = lastNode.parent;
       if (lastIndex % 2 == 1) {
         parentNode.child1 = null;
-        const parentIndex = Math.floor((lastIndex - 1) / 2);
-        this.nodesWithoutChildren[parentIndex] = parentNode;
       } else {
         parentNode.child2 = null;
-      }
+      }  
+      const parentIndex = Math.floor((lastIndex - 1) / 2);
+      this.nodesWithoutChildren[parentIndex] = parentNode;
+
       delete this.nodesWithoutChildren[lastIndex];
       this.heapSize -= 1;
       
+
       this.minHeapify(this.treeRoot);
     }
 
