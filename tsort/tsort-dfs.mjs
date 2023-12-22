@@ -7,7 +7,7 @@ export function tsortDfsM0(graph) {
   function tsortFromVertex(vertex) {
     visitedVertex.add(vertex);
 
-    for (const neighborVertex of graph[vertex]) {
+    for (const neighborVertex of graph.vertexes[vertex]) {
       if (!visitedVertex.has(neighborVertex)) {
         tsortFromVertex(neighborVertex);
       }
@@ -35,7 +35,7 @@ export function tsortDfs(graph) {
     visitedVertex.add(vertex);
     checkCycles.add(vertex);
 
-    for (const neighborVertex of graph[vertex]) {
+    for (const neighborVertex of graph.vertexes[vertex]) {
       if (!visitedVertex.has(neighborVertex)) {
         tsortFromVertex(neighborVertex);
       } else if (checkCycles.has(neighborVertex)) {
@@ -47,7 +47,7 @@ export function tsortDfs(graph) {
     resultStack.push(vertex);
   }
 
-  for (const vertex in graph) {
+  for (const vertex in graph.vertexes) {
     if (!visitedVertex.has(vertex)) {
       tsortFromVertex(vertex);
     }

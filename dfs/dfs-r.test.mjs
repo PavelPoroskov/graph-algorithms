@@ -1,15 +1,15 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { addDirectedNeighborVertexList, printGraph } from '../create-graph.mjs';
+import { Graph } from '../create-graph.mjs';
 import { dfsr } from './dfs-r.mjs';
 
-test('DFS recursive test', (t) => {
-  const graph = {};
+test('DFS recursive test', () => {
+  const graph = new Graph();
   // me --> myNeighborOne --> neighborOfMyNeighborOne
   //    --> myNeighborTwo
-  addDirectedNeighborVertexList(graph, 'me', ['myNeighborOne', 'myNeighborTwo']);
-  addDirectedNeighborVertexList(graph, 'myNeighborOne', ['neighborOfMyNeighborOne']);
+  graph.addDirectedNeighborVertexList('me', ['myNeighborOne', 'myNeighborTwo']);
+  graph.addDirectedNeighborVertexList('myNeighborOne', ['neighborOfMyNeighborOne']);
 
   // console.log('graph');
   // printGraph(graph)

@@ -3,7 +3,7 @@ export function* dfsr({ graph, startVertex }) {
     throw new Error('Undefined start vertex');
   }
 
-  if (!(startVertex in graph)) {
+  if (!(startVertex in graph.vertexes)) {
     throw new Error('Start vertex is not in graph');
   }
 
@@ -13,7 +13,7 @@ export function* dfsr({ graph, startVertex }) {
     yield currentVertex;
     visitedVertex.add(currentVertex);
 
-    for (const neighborVertex of graph[currentVertex]) {
+    for (const neighborVertex of graph.vertexes[currentVertex]) {
       if (!visitedVertex.has(neighborVertex)) {
         yield *visitVertex(neighborVertex);
       }

@@ -4,10 +4,10 @@ export function tsortKahn(graph) {
   const queue = [];
 
   // calculate in-degrees of all vertices
-  for (const vertex in graph) {
+  for (const vertex in graph.vertexes) {
     inDegree[vertex] = inDegree[vertex] || 0;
 
-    for (const neighborVertex of graph[vertex]) {
+    for (const neighborVertex of graph.vertexes[vertex]) {
       inDegree[neighborVertex] = (inDegree[neighborVertex] || 0) + 1;
     }
   }
@@ -25,7 +25,7 @@ export function tsortKahn(graph) {
     result.push(currentVertex);
 
     // decrement in-degree of all adjacent vertices
-    for (const neighborVertex of graph[currentVertex]) {
+    for (const neighborVertex of graph.vertexes[currentVertex]) {
       inDegree[neighborVertex] = inDegree[neighborVertex] - 1;
 
       if (inDegree[neighborVertex] == 0) {

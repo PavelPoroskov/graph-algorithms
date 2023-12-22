@@ -33,7 +33,7 @@ test('Shortest path. Dijkstra with priority queue', () => {
   )
 });
 
-test('Shortest path. Dijkstra original (without priority )', () => {
+test('Shortest path. Dijkstra original (without priority queue)', () => {
   const graph = new Graph();
   graph.addNeighborVertexList('0', ['1', '7']);
   graph.addNeighborVertexList('1', ['2', '7']);

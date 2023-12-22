@@ -3,7 +3,7 @@ export function* bfs({ graph, startVertex }) {
     throw new Error('Undefined start vertex');
   }
 
-  if (!(startVertex in graph)) {
+  if (!(startVertex in graph.vertexes)) {
     throw new Error('Start vertex is not in graph');
   }
 
@@ -19,7 +19,7 @@ export function* bfs({ graph, startVertex }) {
     const currentVertex = queue.shift();
     yield currentVertex;
 
-    for (const neighborVertex of graph[currentVertex]) {
+    for (const neighborVertex of graph.vertexes[currentVertex]) {
       if (!wasInQueueVertex.has(neighborVertex)) {
         queue.push(neighborVertex);
         wasInQueueVertex.add(neighborVertex);

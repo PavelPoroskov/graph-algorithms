@@ -1,17 +1,17 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { addDirectedNeighborVertexList, printGraph } from '../create-graph.mjs';
+import { Graph } from '../create-graph.mjs';
 import { bfs } from './bfs.mjs';
 // TODO we do not know size of the graph
 // TODO generate random graph
 
-test('BFS test', (t) => {
-  const graph = {};
+test('BFS test', () => {
+  const graph = new Graph();
   // me --> myNeighborOne --> neighborOfMyNeighborOne
   //    --> myNeighborTwo
-  addDirectedNeighborVertexList(graph, 'me', ['myNeighborOne', 'myNeighborTwo']);
-  addDirectedNeighborVertexList(graph, 'myNeighborOne', ['neighborOfMyNeighborOne']);
+  graph.addDirectedNeighborVertexList('me', ['myNeighborOne', 'myNeighborTwo']);
+  graph.addDirectedNeighborVertexList('myNeighborOne', ['neighborOfMyNeighborOne']);
 
   // console.log('graph');
   // printGraph(graph)
