@@ -3,13 +3,37 @@ export class MinPQueue {
     this.heapSize = 0;
     this.treeRoot = null;
     this.nodesWithoutChildren = {};
+    this.insertOrder = 0;
   }
   isEmpty() {
     return this.heapSize === 0;
   }
+  isPriority(nodeA, nodeB) {
+    if (nodeA.value < nodeB.value) {
+      return true;
+    }
+
+    if (nodeA.value === nodeB.value && nodeA.insertOrder < nodeB.insertOrder) {
+      return true;
+    }
+
+    return false;
+  }
+  swapNodeValues(nodeA, nodeB) {
+    const { value, insertOrder, data } = nodeA;
+    nodeA.value = nodeB.value;
+    nodeA.insertOrder = nodeB.insertOrder;
+    nodeA.data = nodeB.data;
+    
+    nodeB.value = value;
+    nodeB.insertOrder = insertOrder;
+    nodeB.data = data;
+  }
   add(value,data) {
+    this.insertOrder += 1;
     const newNode = {
       value,
+      insertOrder: this.insertOrder,
       data,
       // left
       child1: null,
@@ -39,32 +63,22 @@ export class MinPQueue {
 
     let currentNode = newNode;
     let parentNode = currentNode.parent;
-    while (parentNode && parentNode.value > currentNode.value) { 
-      const { value, data } = currentNode;
-      currentNode.value = parentNode.value;
-      currentNode.data = parentNode.data;
-      parentNode.value = value;
-      parentNode.data = data;
-      
+    while (parentNode && this.isPriority(currentNode, parentNode)) { 
+      this.swapNodeValues(parentNode, currentNode);      
       currentNode = parentNode;
       parentNode = currentNode.parent;
     }
   }
   minHeapify(node) { 
     let smallest = node; 
-    if (node.child1 && node.child1.value < node.value) { 
+    if (node.child1 && this.isPriority(node.child1, node)) { 
       smallest = node.child1; 
     } 
-    if (node.child2 && node.child2.value < smallest.value) { 
+    if (node.child2 && this.isPriority(node.child2, smallest)) { 
       smallest = node.child2;
     } 
     if (smallest !== node) { 
-      const { value, data } = node;
-      node.value = smallest.value;
-      node.data = smallest.data;
-      smallest.value = value;
-      smallest.data = data;
-
+      this.swapNodeValues(node, smallest); 
       this.minHeapify(smallest); 
     } 
   } 

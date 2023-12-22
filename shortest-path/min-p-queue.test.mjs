@@ -37,7 +37,7 @@ test('MinPQueue test', () => {
   )
 });
 
-test.skip('MinPQueue test save order for equals', () => {
+test('MinPQueue test save order for equals', () => {
   const pq = new MinPQueue();
 
   pq.add(3); 
