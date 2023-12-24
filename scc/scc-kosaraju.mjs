@@ -51,6 +51,7 @@ export function kosaraju(graph) {
       })
     }
   }
+  visitedVertexDirectStepSet.clear();
 
   // Step 2: Reverse the graph
   const reversedGraph = reverseGraph(graph);

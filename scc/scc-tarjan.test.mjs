@@ -2,9 +2,9 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 
 import { Graph } from '../create-graph.mjs';
-import { kosaraju } from './scc-kosaraju.mjs';
+import { tarjan } from './scc-tarjan.mjs';
 
-test('SCC. kosaraju', () => {
+test('SCC. tarjan', () => {
   const graph = new Graph();
   graph.addDirectedNeighborVertexList('1', ['2']);
   graph.addDirectedNeighborVertexList('2', ['3', '4']);
@@ -14,13 +14,13 @@ test('SCC. kosaraju', () => {
   graph.addDirectedNeighborVertexList('6', ['7']);
   graph.addDirectedNeighborVertexList('7', ['5']);
 
-  const result = kosaraju(graph);
+  const result = tarjan(graph);
 
   assert.deepEqual(
     result,
     [
-      ['4','2','1','3'],
-      ['5','7','6'],
+      ['7','6','5'],
+      ['4','3','2','1'],
     ],
   )
 });

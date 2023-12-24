@@ -56,7 +56,7 @@ export function shortestPath({ graph, startVertex, targetVertex }) {
   const path = [];
   if (isTargetReached) {
     let currentVertex = targetVertex;
-    while (previous[currentVertex] || currentVertex === startVertex) {
+    while (currentVertex) {
       path.push(currentVertex)
       currentVertex = previous[currentVertex]
     }

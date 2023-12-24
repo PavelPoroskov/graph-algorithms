@@ -1,3 +1,11 @@
+TODO better example graph for test
+  visualize
+    ascii-graphics?
+TODO dfs/bfs not iter version
+    dfs({ graph, start, visitedSet, visitedList })
+    use in other algorithms
+      tsort
+      scc-kosaraju
 
 TODO visualize graph
   in web page
