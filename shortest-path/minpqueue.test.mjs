@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { MinPQueue } from './min-p-queue.mjs';
+import { MinPQueue } from './minpqueue.mjs';
 
 test('MinPQueue test', () => {
   const pq = new MinPQueue();
