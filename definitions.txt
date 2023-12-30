@@ -23,10 +23,13 @@ https://www.geeksforgeeks.org/biconnectivity-in-a-graph/
 A connected graph is Biconnected if it is connected and doesn’t have any Articulation Point. We mainly need to check two things in a graph. 
 
 graph tasks/problems
-search: dfs, bfs
-tsort:
-shortest path
-scc
-min span tree
+search: dfs, bfs: default DIRECTED
+tsort: DIRECTED acyclic graph
+shortest path: 
+  Dijkstra: non-negative weights
+  Bellman–Ford: 
+scc: DIRECTED graph
+min span tree: UNdirected
+  Prim
 coloring graph
 max flow

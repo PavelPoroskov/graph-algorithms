@@ -1,5 +1,5 @@
 
-import { MinPQueue } from './minpqueue.mjs';
+import { MinPQueue } from '../yy-etc/minpqueue.mjs';
 
 // original dijkstra algorithm uses simple queue (not priority queue)
 export function originalDijkstra({ graph, startVertex }) {
