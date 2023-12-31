@@ -17,10 +17,6 @@ export function mstPrim(graph) {
 
   while (!minpqueue.isEmpty()) {
     const { data: currentVertex } = minpqueue.extract();
-    // console.log('from queue ', currentVertex);
-    // if (visitedVertexSet.has(currentVertex)) {
-    //   continue;
-    // }
     visitedVertexSet.add(currentVertex);
 
     for (const neighborVertex of graph.vertexes[currentVertex]) {
@@ -30,7 +26,6 @@ export function mstPrim(graph) {
       || edgeWeight < minWeightToVertex[neighborVertex])) {
         minWeightToVertex[neighborVertex] = edgeWeight;
         parentVertex[neighborVertex] = currentVertex;
-        // console.log('    add to queue', neighborVertex,  edgeWeight);
         minpqueue.add(edgeWeight, neighborVertex);
       }
     }
