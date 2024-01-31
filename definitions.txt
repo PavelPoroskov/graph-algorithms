@@ -38,6 +38,6 @@ scc: DIRECTED graph
   Tarjan
 min span tree: UNdirected
   Prim
-  Kruskal
+  Kruskal: an undirected edge-weighted graph
 coloring graph
 max flow
