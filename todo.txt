@@ -1,3 +1,7 @@
+TODO rewrite with TypeScript
+
+TODO version with iterator for traversing graph
+
 TODO better example graph for test
   visualize
     ascii-graphics?
